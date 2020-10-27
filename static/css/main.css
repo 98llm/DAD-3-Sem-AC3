@@ -1,0 +1,14 @@
+body{
+    background-color: #00050b;
+    color: beige;
+}
+
+.form-login{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#table-alunos{
+    padding-top: 20px;
+}
+

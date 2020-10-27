@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/home.png')}}" width="30" height="30"
+                class="d-inline-block align-top" >
+            Inicio
+        </a>
+
+        <li class="navbar ml-auto navbar-brand"> Cadastro de Alunos </li>
+
+    </nav>
+
+    <div class="container-fluid" id="table-alunos">
+        <a href="/add"><img width="30px" src="{{ url_for('static', filename='images/adicionar.png')}}"></a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th sorted="col">RA</th>
+                    <th sorted="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Logradouro</th>
+                    <th scope="col">Número</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in alunos %}
+                <tr>
+                    <th scope="row">{{c.ra}}</th>
+                    <td>{{c.nome}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.logradouro}}</td>
+                    <td>{{c.numero}}</td>
+                    <td>{{c.cep}}</td>
+                    <td>{{c.bairro}}</td>
+
+                    <td>
+                        <a class="" href="/edit/{{c.ra}}"><img width="27px"
+                                src="{{ url_for('static', filename='images/editar.png')}}"></a>
+                        <a href="/delete/{{c.ra}}"><img width="27px"
+                                src="{{ url_for('static', filename='images/excluir.png')}}"></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    </div>
+</body>
+
+</html>
