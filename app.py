@@ -4,6 +4,7 @@ import psycopg2
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://dbimpacta:impacta#2020@dbimpacta.postgresql.dbaas.com.br/dbimpacta"
+
 db = SQLAlchemy(app)
 
 
@@ -14,8 +15,8 @@ connection = psycopg2.connect(
     dbname="dbimpacta"
 )
 
-app.config['DEBUG'] = True
 
+app.config['DEBUG'] = True
 
 
 cursor = connection.cursor()
